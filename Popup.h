@@ -6,21 +6,21 @@
 class Popup : public wxFrame
 {
 public:
-     wxTextCtrl* popupField;
-     wxStaticText* passwordPowerText;
-     wxButton* copyBtn;
+    wxTextCtrl* popupField;
+    wxStaticText* passwordPowerText;
+    wxButton* copyBtn;
 
 
     Popup()
-        : wxFrame(nullptr, wxID_ANY, wxString("�ifreniz Olu�turuldu"), wxDefaultPosition, wxSize(300, 200))
+        : wxFrame(nullptr, wxID_ANY, wxString("Şifreniz Oluşturuldu"), wxDefaultPosition, wxSize(300, 200))
     {
         int PADDING = 20;
         wxBoxSizer* popupSizer = new wxBoxSizer(wxVERTICAL);
 
 
-        wxBoxSizer* textSizer  = new wxBoxSizer(wxHORIZONTAL);
+        wxBoxSizer* textSizer = new wxBoxSizer(wxHORIZONTAL);
 
-        wxStaticText* popupText = new wxStaticText(this, wxID_ANY, wxString("�ifreniz:   "));
+        wxStaticText* popupText = new wxStaticText(this, wxID_ANY, wxString("Şifreniz:   "));
         textSizer->Add(popupText, 1, wxEXPAND | wxLEFT, PADDING);
 
         popupField = new wxTextCtrl(this, wxID_ANY);
@@ -39,7 +39,7 @@ public:
 
         // Button to copy
         copyBtn = new wxButton(this, wxID_ANY, wxString("Kopyala"));
-        popupSizer->Add(copyBtn, 1, wxEXPAND | wxBOTTOM | wxLEFT | wxRIGHT , PADDING);
+        popupSizer->Add(copyBtn, 1, wxEXPAND | wxBOTTOM | wxLEFT | wxRIGHT, PADDING);
 
         this->SetSizer(popupSizer);
     };
