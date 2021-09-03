@@ -11,7 +11,7 @@ int Frame::PointsLength()
 			l++;
 		else
 			break;
-	
+
 	return l;
 }
 
