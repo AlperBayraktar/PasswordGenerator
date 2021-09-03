@@ -64,7 +64,7 @@ Frame::Frame()
 
 
     // --- Button ---
-    wxButton* submitBtn = new wxButton(this, wxID_ANY, wxString("Þifre Oluþtur"));
+    wxButton* submitBtn = new wxButton(this, wxID_ANY, wxString("Şifre Oluştur"));
     submitBtn->Bind(wxEVT_BUTTON, &Frame::GeneratePassword, this);
     sizer->Add(submitBtn, 1, wxEXPAND | wxLEFT | wxRIGHT | wxTOP | wxBOTTOM, P);
 
@@ -80,16 +80,16 @@ void Frame::GeneratePassword(wxCommandEvent& evt)
     {
         passwordLength = std::stoi(lengthInput->GetValue().ToStdString());
 
-        
+
         if (passwordLength < 1)
             throw std::exception();
     }
-    catch(std::exception e)
+    catch (std::exception e)
     {
-        wxMessageBox("Geçerli bir uzunluk giriniz.", "Hata", wxOK | wxICON_ERROR );
+        wxMessageBox("Geçerli bir uzunluk giriniz.", "Hata", wxOK | wxICON_ERROR);
         return;
     }
-    
+
     // Set characters to generate password with
     std::string chars;
 
@@ -109,9 +109,9 @@ void Frame::GeneratePassword(wxCommandEvent& evt)
         return;
     }
 
-    
+
     // Generate the password
-    password = ""; 
+    password = "";
     srand(time(NULL)); // initiliaze a random seed to get unique numbers
 
     for (int i = 0; i < passwordLength; i++)
@@ -120,12 +120,12 @@ void Frame::GeneratePassword(wxCommandEvent& evt)
     // Show the password
     std::string strength = std::to_string(PasswordStrength());
 
-    popup->passwordPowerText->SetLabel(wxString("Þifre gücü: " + strength));
+    popup->passwordPowerText->SetLabel(wxString("Şifre gücü: " + strength));
     popup->popupField->SetValue(wxString(password));
     popup->Show(true);
 }
-  
-    
+
+
 // --- Copying ---
 
 void Frame::CopyError()
@@ -146,7 +146,7 @@ void Frame::CopyText(std::string text)
         wxMessageBox("Kopyalama işlemi sadece Windows işletim sistemlerinde yapılabilir.", "Hata", wxOK | wxICON_ERROR);
         return;
     }
-    
+
 
     if (!OpenClipboard(0))
         CopyError();
