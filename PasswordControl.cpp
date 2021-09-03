@@ -52,17 +52,7 @@ int Frame::PasswordStrength()
 	// Setup
 	uniques = "";
 	for (int i = 0; i < 6; i++)
-	{
-		int x = points[i];
 		points[i] = 0;
-		int y = points[i];
-	}
-	int x = points[0];
-	x = points[1];
-	x = points[2];
-	x = points[3];
-	x = points[4];
-	x = points[5];
 
 	// Length
 	if (passwordLength >= 9)
@@ -89,11 +79,6 @@ int Frame::PasswordStrength()
 		total += points[i];
 
 	int result = total + PointsLength() * 10;
-
-	for (int i = 0; i < PointsLength(); i++)
-	{
-		int x = points[i];
-	}
 
 	return result;
 }
