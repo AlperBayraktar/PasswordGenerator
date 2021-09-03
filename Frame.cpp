@@ -53,9 +53,9 @@ Frame::Frame()
     wxBoxSizer* cBoxSizer = new wxBoxSizer(wxHORIZONTAL);
 
     // Create boxes
-    cBoxes[0] = new wxCheckBox(this, wxID_ANY, wxString("Harflerden çek"));
-    cBoxes[1] = new wxCheckBox(this, wxID_ANY, wxString("Rakamlardan çek"));
-    cBoxes[2] = new wxCheckBox(this, wxID_ANY, wxString("Özel karakterlerden çek"));
+    cBoxes[0] = new wxCheckBox(this, wxID_ANY, wxString("Harflerden Ã§ek"));
+    cBoxes[1] = new wxCheckBox(this, wxID_ANY, wxString("Rakamlardan Ã§ek"));
+    cBoxes[2] = new wxCheckBox(this, wxID_ANY, wxString("Ã–zel karakterlerden Ã§ek"));
 
     // Add to sizers
     for (int i = 0; i < 3; i++)
@@ -64,7 +64,7 @@ Frame::Frame()
 
 
     // --- Button ---
-    wxButton* submitBtn = new wxButton(this, wxID_ANY, wxString("Þifre Oluþtur"));
+    wxButton* submitBtn = new wxButton(this, wxID_ANY, wxString("Ãžifre OluÃ¾tur"));
     submitBtn->Bind(wxEVT_BUTTON, &Frame::GeneratePassword, this);
     sizer->Add(submitBtn, 1, wxEXPAND | wxLEFT | wxRIGHT | wxTOP | wxBOTTOM, P);
 
@@ -86,7 +86,7 @@ void Frame::GeneratePassword(wxCommandEvent& evt)
     }
     catch(std::exception e)
     {
-        wxMessageBox("Geçerli bir uzunluk giriniz.", "Hata", wxOK | wxICON_ERROR );
+        wxMessageBox("GeÃ§erli bir uzunluk giriniz.", "Hata", wxOK | wxICON_ERROR );
         return;
     }
     
@@ -105,7 +105,7 @@ void Frame::GeneratePassword(wxCommandEvent& evt)
     // Control if there are no chars to pick randomly
     if (chars == "")
     {
-        wxMessageBox("En az bir seçenek iþaretlenmelidir.", "Hata", wxOK | wxICON_ERROR);
+        wxMessageBox("En az bir seÃ§enek iÅŸaretlenmelidir.", "Hata", wxOK | wxICON_ERROR);
         return;
     }
 
@@ -120,7 +120,7 @@ void Frame::GeneratePassword(wxCommandEvent& evt)
     // Show the password
     std::string strength = std::to_string(PasswordStrength());
 
-    popup->passwordPowerText->SetLabel(wxString("Þifre gücü: " + strength));
+    popup->passwordPowerText->SetLabel(wxString("Ãžifre gÃ¼cÃ¼: " + strength));
     popup->popupField->SetValue(wxString(password));
     popup->Show(true);
 }
@@ -130,7 +130,7 @@ void Frame::GeneratePassword(wxCommandEvent& evt)
 
 void Frame::CopyError()
 {
-    wxMessageBox("Kopyalama iþlemi baþarýsýz,\n lütfen manuel olarak kopyalamayý deneyin.", "Hata", wxOK | wxICON_ERROR);
+    wxMessageBox("Kopyalama iÅŸlemi baÅŸarÄ±sÄ±z,\n lÃ¼tfen manuel olarak kopyalamayÄ± deneyin.", "Hata", wxOK | wxICON_ERROR);
 }
 
 void Frame::CopyPassword(wxCommandEvent& evt)
@@ -143,7 +143,7 @@ void Frame::CopyText(std::string text)
 {
     if (!CAN_COPY)
     {
-        wxMessageBox("Kopyalama iþlemi sadece Windows iþletim sistemlerinde yapýlabilir.", "Hata", wxOK | wxICON_ERROR);
+        wxMessageBox("Kopyalama iÅŸlemi sadece Windows iÅŸletim sistemlerinde yapÄ±labilir.", "Hata", wxOK | wxICON_ERROR);
         return;
     }
     
@@ -166,6 +166,6 @@ void Frame::CopyText(std::string text)
         CloseClipboard();
         GlobalFree(hg);
 
-        wxMessageBox("Metin kopyalandý.", "Kopyalandý", wxOK | wxICON_INFORMATION);
+        wxMessageBox("Metin kopyalandÄ±.", "KopyalandÄ±", wxOK | wxICON_INFORMATION);
     }
 }
