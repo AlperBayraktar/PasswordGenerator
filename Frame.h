@@ -20,7 +20,7 @@ public:
 
     CHARACTERS CHARS;
     void GeneratePassword(wxCommandEvent&);
-    
+
     void CopyPassword(wxCommandEvent&);
     void CopyText(std::string);
     void CopyError();
@@ -35,7 +35,7 @@ public:
     int PointsLength();
     void AddPoint(int);
     void AddIfHaveOne(std::string, int);
-        
+
 protected:
     DECLARE_EVENT_TABLE();
     void OnClose(wxCloseEvent& evt);
